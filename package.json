@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "markov-strings": "^3.0.1",
+    "better-sqlite3": "7.1.1",
+    "discord.js": "12.3.1"
+  }
+}
