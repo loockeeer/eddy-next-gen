@@ -1,2 +1,4 @@
 node_modules
 corpus.sqlite3
+model.json
+data
