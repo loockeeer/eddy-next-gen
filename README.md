@@ -1,6 +1,6 @@
 # Eddy (next generation)
 
-Eddy is a Discord chatbot you can interact with
+Eddy is a Discord chatbot you can interact with.
 
 /!\ It does NOT answer to what you are asking him : it only generates a sentence based on what you said to him previously /!\
 
