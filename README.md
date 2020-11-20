@@ -13,7 +13,7 @@ Then you can just talk to the bot for the training.
 ## How to start
 
 You need to set these env. variables : 
-PREFIX - the default prefix of the bot \n
+PREFIX - the default prefix of the bot<br />
 TOKEN  - discord bot token
 
 
