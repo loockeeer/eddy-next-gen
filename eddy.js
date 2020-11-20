@@ -81,7 +81,7 @@ client.on('message', async message => {
         return;
     }
 
-    if(db.has(message.guild.id, "autoTalk")) {
+    if(db.has(message.guild.id, "autoTalk") && !message.content.startsWith(prefix)) {
         if(Math.random() > db.get(message.guild.id, "autoTalk")) {
           message.channel.startTyping()
           message.channel.send(generate(message.content)
