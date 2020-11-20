@@ -8,7 +8,7 @@ Eddy is a Discord chatbot you can interact with.
 
 Create a file for training in which you create a markov decision chain (with the module I used), and save it into model.json
 
-Then you can just talk to the bot for the training
+Then you can just talk to the bot for the training.
 
 ## How to start
 
