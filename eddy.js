@@ -39,6 +39,16 @@ function isAdmin(member) {
     return member.permissions.has('MANAGE_GUILD', true)
 }
 
+async function parseRef(message) {
+    const ref = message.reference
+    if(ref) {
+        const guild = await message.client.guilds.fetch(ref.guildID)
+        const channel = guild && guild.channels.cache.get(ref.channelID)
+        return await channel?.messages?.fetch(ref.messageID)
+    }
+    else return null
+}
+
 
 const io = require('@pm2/io')
 
@@ -91,6 +101,18 @@ client.on('message', async message => {
           message.channel.stopTyping()
           talkcount.inc()
           await fs.writeFile('./model.json', JSON.stringify(markov.export()))
+        }
+    }
+    if(!message.content.startsWith(prefix)) {
+        const msgRef = await parseRef(message)
+
+        if(msgRef?.author?.id === client.user.id) {
+            message.channel.send(generate(message.content)
+              .replace(/eddy/ig, message.member.displayName)
+              .replace('!talk ', '')
+            )
+            talkcount.inc()
+            await fs.writeFile('./model.json', JSON.stringify(markov.export()))
         }
     }
 
