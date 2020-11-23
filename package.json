@@ -4,7 +4,7 @@
     "better-sqlite-pool": "^0.3.0",
     "better-sqlite3": "7.1.1",
     "discord-eval.js": "^1.0.13",
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.0",
     "enmap": "^5.8.2",
     "markov-strings": "^3.0.1",
     "tims": "^1.0.4"
