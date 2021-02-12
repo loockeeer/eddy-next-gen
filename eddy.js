@@ -64,17 +64,19 @@ client.on('message', async message => {
     if(!db.has(message.guild.id)) {
         db.set(message.guild.id, {prefix: process.env.PREFIX})
     }
+    console.log(`${message.guild.name} | #${message.channel.name} | @${message.author.tag} | ${message.content}`)
+    if(message.content.replace("!","").includes(client.user.toString())) return message.channel.send(message.guild.members.cache.filter(m=>!m.user.bot).random().user.toString()+" :p")
     const prefix = db.get(message.guild.id, "prefix")
 
     if(db.get(message.guild.id, "channelID") === message.channel.id) {
         if(!message.content.startsWith('\\')) {
-            message.channel.startTyping()
+           
             message.channel.send(
                 generate(message.content)
                     .replace(/eddy/ig ,message.member.displayName)
                     .replace('!talk ', '')
             )
-            message.channel.stopTyping()
+           
             talkcount.inc()
             await fs.writeFile('./model.json', JSON.stringify(markov.export()))
         }
@@ -83,12 +85,12 @@ client.on('message', async message => {
 
     if(db.has(message.guild.id, "autoTalk") && !message.content.startsWith(prefix)) {
         if(Math.random() > db.get(message.guild.id, "autoTalk")) {
-          message.channel.startTyping()
+       
           message.channel.send(generate(message.content)
             .replace(/eddy/ig, message.member.displayName)
             .replace('!talk ', '')
           )
-          message.channel.stopTyping()
+          
           talkcount.inc()
           await fs.writeFile('./model.json', JSON.stringify(markov.export()))
         }
@@ -100,8 +102,8 @@ client.on('message', async message => {
     const cleanContent = message.content.replace(prefix+command, "")
 
     if(command === "talk") {
-        message.channel.startTyping()
-        message.channel.stopTyping()
+       
+     
         message.channel.send(generate(cleanContent)
             .replace(/eddy/ig,message.member.displayName)
             .replace('!talk ', '')

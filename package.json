@@ -7,6 +7,9 @@
     "discord.js": "^12.5.0",
     "enmap": "^5.8.2",
     "markov-strings": "^3.0.1",
+    "pg": "^8.5.1",
+    "sentence-similarity": "^3.0.2",
+    "similarity-score": "^1.0.0",
     "tims": "^1.0.4"
   }
 }
