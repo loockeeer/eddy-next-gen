@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 const tims = require('tims')
 
 const Enmap = require("enmap");
-const db = new Enmap({name: "guilds"});
+const db = new Enmap({name: "guilds", dataDir: './botdata/data'});
 
 const markov = new Markov({ stateSize: 2 })
 markov.import(JSON.parse(require('fs').readFileSync('./model.json')))
