@@ -8,7 +8,7 @@ const Enmap = require("enmap");
 const db = new Enmap({name: "guilds", dataDir: './botdata/data'});
 
 const markov = new Markov({ stateSize: 2 })
-markov.import(JSON.parse(require('fs').readFileSync('./model.json')))
+markov.import(JSON.parse(require('fs').readFileSync('./botdata/model.json')))
 
 
 const FOOTER = 'Eddy 2020 | Made by Loockeeer#8522'
@@ -78,7 +78,7 @@ client.on('message', async message => {
             )
            
             talkcount.inc()
-            await fs.writeFile('./model.json', JSON.stringify(markov.export()))
+            await fs.writeFile('./botdata/model.json', JSON.stringify(markov.export()))
         }
         return;
     }
@@ -92,7 +92,7 @@ client.on('message', async message => {
           )
           
           talkcount.inc()
-          await fs.writeFile('./model.json', JSON.stringify(markov.export()))
+          await fs.writeFile('./botdata/model.json', JSON.stringify(markov.export()))
         }
     }
 
@@ -109,7 +109,7 @@ client.on('message', async message => {
             .replace('!talk ', '')
         )
         talkcount.inc()
-        await fs.writeFile('./model.json', JSON.stringify(markov.export()))
+        await fs.writeFile('./botdata/model.json', JSON.stringify(markov.export()))
     }
 
     if(command === "setChannel") {
@@ -209,7 +209,7 @@ client.on('message', async message => {
 
     if(command === "stats") {
         client.guilds.cache.map(g=>g.fetch())
-        const markovSize = (await fs.stat('./model.json')).size / 1000000.0 // MB
+        const markovSize = (await fs.stat('./botdata/model.json')).size / 1000000.0 // MB
         const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024) // MB
         const guilds = client.guilds.cache.size
         const users = client.guilds.cache.map(g=>g.approximateMemberCount).reduce((a,b)=>a+b)
