@@ -71,7 +71,7 @@ client.on('message', async message => {
     if(db.get(message.guild.id, "channelID") === message.channel.id) {
         if(!message.content.startsWith('\\')) {
            
-            message.channel.send(
+            message.reply(
                 generate(message.content)
                     .replace(/eddy/ig ,message.member.displayName)
                     .replace('!talk ', '')
@@ -86,7 +86,7 @@ client.on('message', async message => {
     if(db.has(message.guild.id, "autoTalk") && !message.content.startsWith(prefix)) {
         if(Math.random() > db.get(message.guild.id, "autoTalk")) {
        
-          message.channel.send(generate(message.content)
+          message.reply(generate(message.content)
             .replace(/eddy/ig, message.member.displayName)
             .replace('!talk ', '')
           )
@@ -104,7 +104,7 @@ client.on('message', async message => {
     if(command === "talk") {
        
      
-        message.channel.send(generate(cleanContent)
+        message.reply(generate(cleanContent)
             .replace(/eddy/ig,message.member.displayName)
             .replace('!talk ', '')
         )
