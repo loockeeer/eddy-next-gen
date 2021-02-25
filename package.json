@@ -10,6 +10,7 @@
     "pg": "^8.5.1",
     "sentence-similarity": "^3.0.2",
     "similarity-score": "^1.0.0",
-    "tims": "^1.0.4"
+    "tims": "^1.0.4",
+    "dotenv": "*"
   }
 }
