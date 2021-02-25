@@ -1,3 +1,4 @@
+require('dotenv').config()
 const DiscordEval = require('discord-eval.js')
 const Markov = require('markov-strings').default
 const fs = require('fs').promises
