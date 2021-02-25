@@ -49,7 +49,7 @@ const talkcount = io.counter({
 })
 
 
-const client = new Discord.Client({ ws: { intents: ["GUILD_MESSAGES", "DIRECT_MESSAGES"] }})
+const client = new Discord.Client({ intents: ["GUILD_MESSAGES", "DIRECT_MESSAGES"] })
 
 client.login(process.env.TOKEN)
 
