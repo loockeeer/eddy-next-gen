@@ -49,7 +49,7 @@ const talkcount = io.counter({
 })
 
 
-const client = new Discord.Client()
+const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.NON_PRIVILEGED) }})
 
 client.login(process.env.TOKEN)
 
